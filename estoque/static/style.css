@@ -81,9 +81,9 @@ td{
     align-items: center;
     justify-content: center;
 }
-.button button{
+.button a {
     background: #e84118;
-    color: #f5f6fa;   
+    color: #f5f6fa;
     margin-top: 32px;
     width: 30%;
     height: 60px;

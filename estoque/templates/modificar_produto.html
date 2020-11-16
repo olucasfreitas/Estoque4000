@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../static/style.css">
     <title>Estoque 4000</title>
 </head>
 <body>
@@ -11,9 +11,9 @@
         <h1>Estoque 4000</h1>
     </header>
     <div class="button">
-        <button>Inserir Produto</button>
-        <button>Lista de Produtos</button>
-        <button>Vender Produto</button>
+        <a href="/modify">Modificar Produto</a >
+        <a href="/list">Lista de Produtos</a >
+        <a href="/sell">Vender Produto</a >
     </div>
     <div class="main-content">
         <form action="">
@@ -22,7 +22,7 @@
                 <input type="text" placeholder="Nome Produto">
             </div>
             <div class="product" id="product">
-                <input type="text" placeholder="Preço de compra">   
+                <input type="text" placeholder="Preço de compra">
             </div>
             <div class="product" id="product">
                 <input type="text" placeholder="Preço de venda">
