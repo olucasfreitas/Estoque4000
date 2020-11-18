@@ -11,7 +11,7 @@ def insert():
   return render_template('inserir_produto.html')
 
 @bp.route('/list')
-def list():
+def list_product():
   return render_template('lista_produtos.html')
 
 @bp.route('/modify')
