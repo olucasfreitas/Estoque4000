@@ -5,3 +5,4 @@ venv
 /estoque/migrations/
 Scripts
 Lib
+pyvenv.cfg
