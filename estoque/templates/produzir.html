@@ -11,25 +11,20 @@
         <h1>Estoque 4000</h1>
     </header>
         <div class="button">
-            <a href="/buy_products">Comprar Produtos</a >
-            <a href="/list_produtcs">Lista de Produtos</a >
-            <a href="/create_provider">Criar fornecedor</a >
+            <a href="/produce">Produzir</a >
+            <a href="/list_produtcs">Lista de Produtos a Vender</a >
         </div>
         <div class="main-content">
             <form action="/buy_products" method="post">
-                <h1>Registrar Produto</h1>
+                <h1>Produzir</h1>
                 <div class="product">
                     <input type="text" placeholder="Nome Produto" name="name">
                 </div>
                 <div class="product">
-                    <input type="text" placeholder="Preço" name="purchased_price">
+                    <input type="number" placeholder="Custa de Produção por Unidade" name="production_cost_per_unit">
                 </div>
                 <div class="product">
-                    <select name="provider_id">
-                        {% for provider in providers %}
-                            <option value="{{provider.id}}">{{provider.name}}</option>
-                        {% endfor %}
-                    </select>
+                    <input type="number" placeholder="Quantidade a ser vendida" name="quantity">
                 </div>
                 <div class="button">
                     <button type="submit">Registrar Produto</button>
