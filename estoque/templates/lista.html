@@ -11,9 +11,9 @@
         <h1>Estoque 4000</h1>
     </header>
     <div class="button">
-        <a href="/modify">Modificar Produto</a >
-        <a href="/list">Lista de Produtos</a >
-        <a href="/sell">Vender Produto</a >
+        <a href="/buy_products">Comprar Produtos</a >
+        <a href="/list_produtcs">Lista de Produtos</a >
+        <a href="/create_provider">Criar fornecedor</a >
     </div>
     <div class="main-content">
         <table>
@@ -22,8 +22,8 @@
                     <th>Produto</th>
                     <th>Preço de compra</th>
                     <th>Preço de venda</th>
-                    <th>Lucro Máximo</th>
                     <th>Quantidade</th>
+                    <th>Lucro Máximo</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,8 +32,8 @@
                         <td>{{produto.nome}}</td>
                         <td>{{produto.preco_compra}}</td>
                         <td>{{produto.preco_venda}}</td>
-                        <td>{{produto.lucro_max}}</td>
                         <td>{{produto.quantidade}}</td>
+                        <td>{{produto.lucro_max}}</td>
                     </tr>
                 {% endfor %}
             </tbody>

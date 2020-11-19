@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Estoque 4000</title>
+</head>
+<body>
+    <header class="header-content">
+        <h1>Estoque 4000</h1>
+    </header>
+        <div class="button">
+            <a href="/buy_products">Comprar Produtos</a >
+            <a href="/list_produtcs">Lista de Produtos</a >
+            <a href="/create_provider">Criar fornecedor</a >
+        </div>
+        <div class="main-content">
+            <form action="/buy_products" method="post">
+                <h1>Registrar Produto</h1>
+                <div class="product">
+                    <input type="text" placeholder="Nome Produto" name="name">
+                </div>
+                <div class="product">
+                    <input type="text" placeholder="Preço" name="purchased_price">
+                </div>
+                <div class="product">
+                    <select name="provider_id">
+                        {% for provider in providers %}
+                            <option value="{{provider.id}}">{{provider.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="button">
+                    <button type="submit">Registrar Produto</button>
+                </div>
+            </form>
+        </div>
+</body>
+</html>

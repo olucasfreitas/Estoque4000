@@ -8,15 +8,34 @@ def init_app(app):
     app.db = db
 
 class Provider(db.Model):
-  __name__ = "users"
-  id = db.Column(db.Integer, primary_key=True)
-  name = db.Column(db.String(150))
-  email = db.Column(db.String(150))
-  registered_number = db.Column(db.String(150))
-  password = db.Column(db.String(150))
+    __name__ = "provider"
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(150))
 
-  def __init__(self, name, registered_number, email, password):
-    self.name = name
-    self.registered_number = registered_number
-    self.email = email
-    self.password = password
+    def __init__(self, name):
+        self.name = name
+
+class Stock(db.Model):
+    __name__ = "stock"
+    id = db.Column(db.Integer, primary_key=True)
+    quantity_products = db.Column(db.Float, nullable=True)
+    product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
+    sold_price = db.Column(db.String(150), nullable=False)
+
+    def __init__(self, quantity_products, products, sold_price):
+        self.quantity_products = quantity_products
+        self.products = products
+        self.sold_price = sold_price
+
+class Product(db.Model):
+    __name__ = "product"
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(150), nullable=False)
+    products = db.relationship("Stock", backref="product", lazy="select")
+    provider_id = db.Column(db.Integer, nullable=False)
+    purchased_price = db.Column(db.String(150), nullable=False)
+
+    def __init__(self, name, purchased_price, provider_id):
+        self.name = name
+        self.provider_id = provider_id
+        self.purchased_price = purchased_price

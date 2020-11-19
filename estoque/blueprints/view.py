@@ -1,24 +1,37 @@
-from flask import Blueprint, render_template, current_app
-from estoque.extensions.database import Provider
-from estoque.extensions.serializer import ProviderSchema
+from flask import Blueprint, render_template, request, redirect, url_for
+from ..extensions.serializer import ProviderSchema, ProductSchema
+from ..extensions.database import db, Provider
 
-bp = Blueprint('details', __name__, template_folder='templates', static_folder='static')
+bp = Blueprint('view', __name__, template_folder='templates', static_folder='static')
 
-@bp.route('/sell')
-def sell():
-  return render_template('venda_produto.html')
+@bp.route('/buy_products', methods=['GET', 'POST'])
+def buy():
+  if request.method == 'GET':
+    providers = Provider.query.all()
+    return render_template('comprar_produto.html', providers=providers)
+  else:
+    product = ProductSchema()
+    product_info = request.form.to_dict()
+    product_load = product.load(product_info)
+    db.session.add(product_load)
+    db.session.commit()
+    return redirect(url_for('view.list_produtcs'))
 
-@bp.route('/insert')
-def insert():
-  return render_template('inserir_produto.html')
+@bp.route('/create_provider', methods=['GET', 'POST'])
+def create_provider():
+  if request.method == 'GET':
+    return render_template('criar_fornecedor.html')
+  else:
+    provider = ProviderSchema()
+    provider_info = request.form.to_dict()
+    provider_load = provider.load(provider_info)
+    db.session.add(provider_load)
+    db.session.commit()
+    return redirect(url_for('view.list_produtcs'))
 
-@bp.route('/list')
-def list_product():
-  return render_template('lista_produtos.html')
-
-@bp.route('/modify')
-def modify():
-  return render_template('modificar_produto.html')
+@bp.route('/list_produtcs')
+def list_produtcs():
+  return render_template('lista.html')
 
 def init_app(app):
   app.register_blueprint(bp)
