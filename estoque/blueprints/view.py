@@ -9,6 +9,7 @@ def lucro_max(quantidade_produto, custo_produto ):
   # C = Custo
   # L(x) = (Q - x) * x - C(Q - x)
   # L(x)= Q.x - x² - C.Q + C.x
+  ...
 
 
 
@@ -25,6 +26,7 @@ def produce():
     return redirect(url_for('view.list_produtcs'))
 
 @bp.route('/list_produtcs')
+@bp.route('/')
 def list_produtcs():
   return render_template('lista.html')
 
