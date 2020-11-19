@@ -81,9 +81,9 @@ td{
     align-items: center;
     justify-content: center;
 }
-.button a {
+.button button{
     background: #e84118;
-    color: #f5f6fa;
+    color: #f5f6fa;   
     margin-top: 32px;
     width: 30%;
     height: 60px;
@@ -94,6 +94,23 @@ td{
     cursor: pointer;
     transition: 0.2s linear;
 }
-.button button:hover{
+.button a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e84118;
+    color: #f5f6fa;   
+    margin-top: 32px;
+    width: 30%;
+    height: 60px;
+    font-size: 24px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s linear;
+    text-decoration: none;
+}
+.button button:hover, .button a:hover{
     background: #c23616;
 }
