@@ -6,3 +6,5 @@ venv
 Scripts
 Lib
 pyvenv.cfg
+estoque/workspace.code-workspace
+migrations
