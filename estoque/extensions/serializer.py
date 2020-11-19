@@ -6,6 +6,6 @@ ma = Marshmallow()
 def init_app(app):
     ma.init_app(app)
 
-class Provider(ma.ModelSchema):
+class ProviderSchema(ma.ModelSchema):
     class Meta:
         model = Provider

@@ -5,5 +5,6 @@ SECRET_KEY = 'e7c0596d00d6d1d17e64d6547cd732cf'
 EXTENSIONS=[
     'estoque.blueprints.view',
     'estoque.extensions.serializer',
-    'estoque.extensions.database'
+    'estoque.extensions.database',
+    'estoque.extensions.migration'
 ]
