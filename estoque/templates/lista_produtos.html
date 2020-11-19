@@ -27,13 +27,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                {% for produto in lista_produto %}
+                    <tr>
+                        <td>{{produto.nome}}</td>
+                        <td>{{produto.preco_compra}}</td>
+                        <td>{{produto.preco_venda}}</td>
+                        <td>{{produto.lucro_max}}</td>
+                        <td>{{produto.quantidade}}</td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>

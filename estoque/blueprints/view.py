@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, current_app
+from estoque.extensions.database import Provider
+from estoque.extensions.serializer import ProviderSchema
 
 bp = Blueprint('details', __name__, template_folder='templates', static_folder='static')
 
