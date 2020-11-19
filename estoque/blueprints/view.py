@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from ..extensions.serializer import ProviderSchema, ProductSchema
-from ..extensions.database import db, Provider
+from ..extensions.database import Session, Provider
 
 bp = Blueprint('view', __name__, template_folder='templates', static_folder='static')
 
@@ -13,8 +13,8 @@ def buy():
     product = ProductSchema()
     product_info = request.form.to_dict()
     product_load = product.load(product_info)
-    db.session.add(product_load)
-    db.session.commit()
+    Session.add(product_load)
+    Session.commit()
     return redirect(url_for('view.list_produtcs'))
 
 @bp.route('/create_provider', methods=['GET', 'POST'])
@@ -25,8 +25,8 @@ def create_provider():
     provider = ProviderSchema()
     provider_info = request.form.to_dict()
     provider_load = provider.load(provider_info)
-    db.session.add(provider_load)
-    db.session.commit()
+    Session.add(provider_load)
+    Session.commit()
     return redirect(url_for('view.list_produtcs'))
 
 @bp.route('/list_produtcs')
