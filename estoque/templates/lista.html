@@ -28,7 +28,7 @@
             <tbody>
                 {% for produto in produtos %}
                     <tr>
-                        <td>{{produto.name}}</td>
+                        <td id="{{produto.id}}">{{produto.name}}</td>
                         <td>{{produto.production_cost}}</td>
                         <td>{{produto.sold_price}}</td>
                         <td>{{produto.quantity}}</td>
@@ -38,5 +38,83 @@
             </tbody>
         </table>
     </div>
+    <canvas id="myChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>  
+        var ctx = document.getElementById('myChart');
+        option = {
+                        scales: {
+                                    yAxes: [{
+                                                stacked: true
+                                            }]
+                                },
+                                backgroundColor: "Transparent"
+                                
+                    }
+        var stackedLine = new Chart(ctx, {
+                                            type: 'line',
+                                            borderWidth: 2,
+                                            
+                                            options: option
+                                            });
+        function plotarGraph(id){
+            
+            precos = []
+            preco = []
+            double_price = 0
+            max_price = 0
+            Q = 0
+            C = 0
+            "{% for prod in produtos %}"
+                if ("{{prod.id}}" == id){
+                    double_price = "{{prod.sold_price}}"
+                    max_price = "{{prod.maximum_profit}}"
+                    Q = "{{prod.quantity}}"
+                    C =  "{{prod.production_cost}}"
+                    Q = parseFloat(Q)
+                    C = parseFloat(C)
+                }
+            "{% endfor %}"
+            double_price = (double_price*2)
+            var iniciar = []
+            for(x=0; x<double_price; x++){
+                parte1 = (-x)**2
+                parte2 = (Q+C) * x
+                parte3 = C*Q
+                valor = -parte1+parte2-parte3
+                if (valor>=0){ 
+                    preco.push(valor)
+                }
+                if (valor==0){
+                    iniciar.push(x)
+                }   
+            }
+            for(y=iniciar[0]; y<iniciar[1]+1; y++){
+                precos.push(y)
+            }
+            dados = {
+                labels:precos,
+                datasets: [{
+                    label: "Lucro Máximo",
+                    data: preco
+                }]
+            }
+            console.log(stackedLine)
+            stackedLine.data = dados
+            stackedLine.update()
+            
+        }
+        
+        function getID(){
+            plotarGraph(this.id)
+        }
+        "{% for produto in produtos %}"
+            id = "{{produto.id}}"
+            id = parseInt(id)
+            td = document.getElementById(id)
+            td.addEventListener("click", getID)
+        "{% endfor %}"
+        
+     </script>
 </body>
 </html>

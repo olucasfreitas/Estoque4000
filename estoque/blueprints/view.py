@@ -20,7 +20,7 @@ def lucro_max(Q, C):
   f = Lambda(x, (- x ** 2 + (Q+C)*x - C*Q))
   print("Expressão: " ,f'- x² + {Q+C}.x - {C*Q}')
   derivada = diff(f(x), x)
-  print("Derivada: ", )
+  print("Derivada: ", derivada)
   preco = solve(derivada)[0]
   print("Preço para obter lucro máximo: ", preco)
   lucro = -preco**2 + (Q+C)*preco - C*Q
