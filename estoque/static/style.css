@@ -5,11 +5,12 @@
 }
 body{
     background:#10ac84;
+    scrollbar-color: #000000;
 }
+
 table{
     border-collapse: collapse;
-    width: 80%;
-    margin: auto;
+    height: 100%;
     background: beige;
 }
 
@@ -114,3 +115,15 @@ td{
 .button button:hover, .button a:hover{
     background: #c23616;
 }
+#div-content{
+    height: 400px;
+}
+#div-tabela{
+
+    direction: unset;
+    text-align:left;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(6, 184, 124) rgb(29, 46, 43);
+    scrollbar-highlight-color: rgba(3, 141, 14, 0.774);
+}
+

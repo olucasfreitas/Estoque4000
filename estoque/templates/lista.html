@@ -15,30 +15,37 @@
         <a href="/list_produtcs">Lista de Produtos a Vender</a >
     </div>
     <div class="main-content">
-        <table>
-            <thead>
-                <tr>
-                    <th>Produto</th>
-                    <th>Custo de produção</th>
-                    <th>Preço de venda</th>
-                    <th>Quantidade</th>
-                    <th>Lucro Máximo</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for produto in produtos %}
-                    <tr>
-                        <td id="{{produto.id}}">{{produto.name}}</td>
-                        <td>{{produto.production_cost}}</td>
-                        <td>{{produto.sold_price}}</td>
-                        <td>{{produto.quantity}}</td>
-                        <td>{{produto.maximum_profit}}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <div style="display: flex;" id="div-content">
+            <div style="max-height: 100%; overflow: scroll;" id="div-tabela">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Custo de produção</th>
+                            <th>Preço de venda</th>
+                            <th>Quantidade</th>
+                            <th>Lucro Máximo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for produto in produtos %}
+                            <tr>
+                                <td id="{{produto.id}}">{{produto.name}}</td>
+                                <td>{{produto.production_cost}}</td>
+                                <td>{{produto.sold_price}}</td>
+                                <td>{{produto.quantity}}</td>
+                                <td>{{produto.maximum_profit}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <canvas id="myChart" width="600%" height="400%"></canvas>
+            </div>
+        </div>
     </div>
-    <canvas id="myChart"></canvas>
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script>  
         var ctx = document.getElementById('myChart');
@@ -55,7 +62,7 @@
                                             type: 'line',
                                             borderWidth: 2,
                                             
-                                            options: option
+                                            options: option,
                                             });
         function plotarGraph(id){
             
