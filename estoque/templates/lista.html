@@ -19,20 +19,20 @@
             <thead>
                 <tr>
                     <th>Produto</th>
-                    <th>Preço de compra</th>
+                    <th>Custo de produção</th>
                     <th>Preço de venda</th>
                     <th>Quantidade</th>
                     <th>Lucro Máximo</th>
                 </tr>
             </thead>
             <tbody>
-                {% for produto in lista_produto %}
+                {% for produto in produtos %}
                     <tr>
-                        <td>{{produto.nome}}</td>
-                        <td>{{produto.preco_compra}}</td>
-                        <td>{{produto.preco_venda}}</td>
-                        <td>{{produto.quantidade}}</td>
-                        <td>{{produto.lucro_max}}</td>
+                        <td>{{produto.name}}</td>
+                        <td>{{produto.production_cost}}</td>
+                        <td>{{produto.sold_price}}</td>
+                        <td>{{produto.quantity}}</td>
+                        <td>{{produto.maximum_profit}}</td>
                     </tr>
                 {% endfor %}
             </tbody>
