@@ -11,22 +11,22 @@
         <h1>Estoque 4000</h1>
     </header>
         <div class="button">
-            <a href="/produce">Produzir</a >
+            <a href="/produce" style="margin-right: 10%;">Produzir</a >
             <a href="/list_produtcs">Lista de Produtos a Vender</a >
         </div>
         <div class="main-content">
             <form action="/produce" method="post">
                 <h1>Produzir</h1>
                 <div class="product">
-                    <input type="text" placeholder="Nome Produto" name="name">
+                    <input type="text" required placeholder="Nome Produto" name="name">
                 </div>
                 <div class="product">
-                    <input type="number" placeholder="Custa de Produção por Unidade" name="production_cost">
+                    <input type="number" step=".01" min="1" required placeholder="Custa de Produção por Unidade" name="production_cost">
                 </div>
                 <div class="product">
-                    <input type="number" placeholder="Quantidade a ser vendida" name="quantity">
+                    <input type="number" step=".01" min="1" required placeholder="Quantidade a ser vendida" name="quantity">
                 </div>
-                <div class="button">
+                <div class="button" style="margin-bottom: 2%;">
                     <button type="submit">Registrar Produto</button>
                 </div>
             </form>

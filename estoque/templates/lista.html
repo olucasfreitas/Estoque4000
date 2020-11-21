@@ -11,13 +11,13 @@
         <h1>Estoque 4000</h1>
     </header>
     <div class="button">
-        <a href="/produce">Produzir</a >
+        <a href="/produce" style="margin-right: 10%;">Produzir</a >
         <a href="/list_produtcs">Lista de Produtos a Vender</a >
     </div>
     <div class="main-content">
         <div style="display: flex;" id="div-content">
             <div style="max-height: 100%; overflow: scroll;" id="div-tabela">
-                <table>
+                <table style="max-height: 5%;">
                     <thead>
                         <tr>
                             <th>Produto</th>
@@ -106,12 +106,10 @@
                     data: preco
                 }]
             }
-            console.log(stackedLine)
             stackedLine.data = dados
             stackedLine.update()
             
         }
-        
         function getID(){
             plotarGraph(this.id)
         }
