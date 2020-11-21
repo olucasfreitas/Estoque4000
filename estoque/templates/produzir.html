@@ -24,12 +24,20 @@
                     <input type="number" step=".01" min="1" required placeholder="Custa de Produção por Unidade" name="production_cost">
                 </div>
                 <div class="product">
-                    <input type="number" step=".01" min="1" required placeholder="Quantidade a ser vendida" name="quantity">
+                    <input type="number" min="1" required placeholder="Quantidade a ser vendida" name="quantity">
                 </div>
+                {% with messages = get_flashed_messages(category_filter=['danger']) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p style="color:red; justify-self: center; margin: 15px 0 -25px 0">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
                 <div class="button" style="margin-bottom: 2%;">
                     <button type="submit">Registrar Produto</button>
                 </div>
             </form>
+
         </div>
 </body>
 </html>
